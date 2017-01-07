@@ -24,6 +24,20 @@ function drawFrame(){
     ctx.fillRect(xPos, yPos, width, height)
     xPos++;
     yPos++;
+    // x-axis boundries
+    if(xPos < 9){
+        xPos = 12;
+    }
+    if(xPos > 240){
+        xPos = 237;
+    }
+    // y-axis boundries
+    if(yPos < 9){
+        yPos = 12;
+    }
+    if(yPos > 240){
+        yPos = 237;
+    }
 }
 
 function moveBlock(event){
@@ -44,6 +58,7 @@ function moveBlock(event){
         yPos += 10;
     }
 }
+
 
 // The setInterval() method calls a function or evaluates an expression at
 // specified intervals (in milliseconds).
