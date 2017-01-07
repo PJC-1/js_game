@@ -7,10 +7,10 @@ var myCanvas = document.getElementById("myCanvas");
 // representing a two-dimensional rendering context.
 var ctx = myCanvas.getContext("2d");
 
-var xPos = 60;
-var yPos = 90;
-var width = 50;
-var height = 50;
+var goodGuyXPos = 60;
+var goodGuyYPos = 90;
+var goodGuywidth = 50;
+var goodGuyheight = 50;
 
 function drawFrame(){
     // The clearRect() method clears the specified pixels within a given rectangle.
@@ -21,39 +21,39 @@ function drawFrame(){
     ctx.fillStyle="blue";
     // The fillRect() method draws a "filled" rectangle. The default color of the fill is black.
     // syntax: context.fillRect(x,y,width,height);
-    ctx.fillRect(xPos, yPos, width, height)
+    ctx.fillRect(goodGuyXPos, goodGuyYPos, goodGuywidth, goodGuyheight)
     // x-axis boundries
-    if(xPos < 9){
-        xPos = 12;
+    if(goodGuyXPos < 9){
+        goodGuyXPos = 12;
     }
-    if(xPos > 240){
-        xPos = 237;
+    if(goodGuyXPos > 240){
+        goodGuyXPos = 237;
     }
     // y-axis boundries
-    if(yPos < 9){
-        yPos = 12;
+    if(goodGuyYPos < 9){
+        goodGuyYPos = 12;
     }
-    if(yPos > 240){
-        yPos = 237;
+    if(goodGuyYPos > 240){
+        goodGuyYPos = 237;
     }
 }
 
 function moveBlock(event){
     // left
     if(event.keyCode === 37){
-        xPos -= 10;
+        goodGuyXPos -= 10;
     }
     // right
     if(event.keyCode === 39){
-        xPos += 10;
+        goodGuyXPos += 10;
     }
     // up
     if(event.keyCode === 38){
-        yPos -= 10;
+        goodGuyYPos -= 10;
     }
     // down
     if(event.keyCode === 40){
-        yPos += 10;
+        goodGuyYPos += 10;
     }
 }
 
