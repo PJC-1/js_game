@@ -22,8 +22,6 @@ function drawFrame(){
     // The fillRect() method draws a "filled" rectangle. The default color of the fill is black.
     // syntax: context.fillRect(x,y,width,height);
     ctx.fillRect(xPos, yPos, width, height)
-    xPos++;
-    yPos++;
     // x-axis boundries
     if(xPos < 9){
         xPos = 12;
