@@ -7,10 +7,23 @@ var myCanvas = document.getElementById("myCanvas");
 // representing a two-dimensional rendering context.
 var ctx = myCanvas.getContext("2d");
 
-var goodGuyXPos = 60;
-var goodGuyYPos = 90;
-var goodGuywidth = 50;
-var goodGuyheight = 50;
+//////////////
+// GOOD GUY //
+//////////////
+
+var goodGuyXPos   =  60;
+var goodGuyYPos   =  90;
+var goodGuyWidth  =  50;
+var goodGuyHeight =  50;
+
+/////////////
+// BAD GUY //
+/////////////
+
+var badGuyXPos   =  10;
+var badGuyYPos   =  10;
+var badGuyWidth  =  10;
+var badGuyHeight =  10;
 
 function drawFrame(){
     // The clearRect() method clears the specified pixels within a given rectangle.
@@ -21,22 +34,54 @@ function drawFrame(){
     ctx.fillStyle="blue";
     // The fillRect() method draws a "filled" rectangle. The default color of the fill is black.
     // syntax: context.fillRect(x,y,width,height);
-    ctx.fillRect(goodGuyXPos, goodGuyYPos, goodGuywidth, goodGuyheight)
-    // x-axis boundries
+    ctx.fillRect(goodGuyXPos, goodGuyYPos, goodGuyWidth, goodGuyWidth);
+    ctx.fillStyle="purple";
+    ctx.fillRect(badGuyXPos, badGuyYPos, badGuyWidth, badGuyHeight);
+    badGuyYPos += 10;
+
+
+    // bad-guy y-axis boundries
+    if(badGuyYPos > 300){
+       badGuyYPos = 0;
+       badGuyXPos = Math.random()*300;
+    }
+
+    // good-guy x-axis boundries
     if(goodGuyXPos < 9){
         goodGuyXPos = 12;
     }
     if(goodGuyXPos > 240){
         goodGuyXPos = 237;
     }
-    // y-axis boundries
+    // good-guy y-axis boundries
     if(goodGuyYPos < 9){
         goodGuyYPos = 12;
     }
     if(goodGuyYPos > 240){
         goodGuyYPos = 237;
     }
+
+
+    checkCollisions(goodGuyXPos, goodGuyYPos, goodGuyWidth, goodGuyWidth, badGuyXPos, badGuyYPos, badGuyWidth, badGuyHeight);
+
 }
+
+/////////////////////////
+// COLLISION DETECTION //
+/////////////////////////
+
+function checkCollisions(goodGuyXPos, goodGuyYPos, goodGuyWidth, goodGuyWidth, badGuyXPos, badGuyYPos, badGuyWidth, badGuyHeight) {
+     if (goodGuyXPos < badGuyXPos + badGuyWidth &&
+       goodGuyXPos + goodGuyWidth > badGuyXPos &&
+       goodGuyYPos < badGuyYPos + badGuyHeight &&
+       goodGuyHeight+ goodGuyYPos > badGuyYPos) {
+        console.log("they hit each other!!!");
+        return true;
+     }
+     else{
+       return false
+     }
+  }
 
 function moveBlock(event){
     // left
