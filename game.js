@@ -25,6 +25,9 @@ var badGuyYPos   =  10;
 var badGuyWidth  =  10;
 var badGuyHeight =  10;
 
+
+// the drawFrame function is the main function for the game and is used in the
+// setInterval which will fire drawFrame at an interval of 100 (milliseconds).
 function drawFrame(){
     // The clearRect() method clears the specified pixels within a given rectangle.
     // syntax: context.clearRect(x,y,width,height)
@@ -60,8 +63,7 @@ function drawFrame(){
     if(goodGuyYPos > 240){
         goodGuyYPos = 237;
     }
-
-
+    // detect for collision
     checkCollisions(goodGuyXPos, goodGuyYPos, goodGuyWidth, goodGuyWidth, badGuyXPos, badGuyYPos, badGuyWidth, badGuyHeight);
 
 }
@@ -79,7 +81,7 @@ function checkCollisions(goodGuyXPos, goodGuyYPos, goodGuyWidth, goodGuyWidth, b
         return true;
      }
      else{
-       return false
+        return false
      }
   }
 
