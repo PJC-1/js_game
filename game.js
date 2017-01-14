@@ -13,8 +13,8 @@ var ctx = myCanvas.getContext("2d");
 
 var goodGuyXPos   =  60;
 var goodGuyYPos   =  90;
-var goodGuyWidth  =  50;
-var goodGuyHeight =  50;
+var goodGuyWidth  =  40;
+var goodGuyHeight =  40;
 
 /////////////
 // BAD GUY //
@@ -22,8 +22,14 @@ var goodGuyHeight =  50;
 
 var badGuyXPos   =  10;
 var badGuyYPos   =  10;
-var badGuyWidth  =  10;
-var badGuyHeight =  10;
+var badGuyWidth  =  35;
+var badGuyHeight =  35;
+
+var angularImage = new Image();
+angularImage.src = "angular.png"
+
+var reactImage = new Image();
+reactImage.src = "react.png"
 
 
 // the drawFrame function is the main function for the game and is used in the
@@ -31,15 +37,10 @@ var badGuyHeight =  10;
 function drawFrame(){
     // The clearRect() method clears the specified pixels within a given rectangle.
     // syntax: context.clearRect(x,y,width,height)
-    ctx.clearRect(0,0,300,300)
-    // The fillStyle property sets or returns the color, gradient, or pattern
-    // used to fill the drawing.
-    ctx.fillStyle="blue";
-    // The fillRect() method draws a "filled" rectangle. The default color of the fill is black.
-    // syntax: context.fillRect(x,y,width,height);
-    ctx.fillRect(goodGuyXPos, goodGuyYPos, goodGuyWidth, goodGuyWidth);
-    ctx.fillStyle="purple";
-    ctx.fillRect(badGuyXPos, badGuyYPos, badGuyWidth, badGuyHeight);
+    ctx.clearRect(0,0,300,300);
+    // changed fillRect to drawImage to use images instead of boxes
+    ctx.drawImage(angularImage, goodGuyXPos, goodGuyYPos, goodGuyWidth, goodGuyWidth);
+    ctx.drawImage(reactImage, badGuyXPos, badGuyYPos, badGuyWidth, badGuyHeight);
     badGuyYPos += 10;
 
 
