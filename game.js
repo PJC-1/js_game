@@ -39,6 +39,7 @@ var reactImage = new Image();
 reactImage.src = "react.png"
 
 
+
 // the drawFrame function is the main function for the game and is used in the
 // setInterval which will fire drawFrame at an interval of 100 (milliseconds).
 function drawFrame(){
@@ -49,7 +50,7 @@ function drawFrame(){
     ctx.drawImage(angularImage, goodGuyXPos, goodGuyYPos, goodGuyWidth, goodGuyWidth);
     ctx.drawImage(reactImage, badGuyXPos, badGuyYPos, badGuyWidth, badGuyHeight);
     badGuyYPos += 10;
-
+    drawScore();
 
     // bad-guy y-axis boundries
     if(badGuyYPos > 300){
@@ -74,6 +75,18 @@ function drawFrame(){
     // detect for collision
     checkCollisions(goodGuyXPos, goodGuyYPos, goodGuyWidth, goodGuyWidth, badGuyXPos, badGuyYPos, badGuyWidth, badGuyHeight);
 
+}
+
+
+///////////
+// SCORE //
+///////////
+var score = 0;
+
+function drawScore() {
+  ctx.fillStyle = "red";
+  ctx.font = "20px Ariel";
+  ctx.fillText("Score: " + score, 8, 25);
 }
 
 
