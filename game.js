@@ -56,6 +56,7 @@ function drawFrame(){
     if(badGuyYPos > 300){
        badGuyYPos = 0;
        badGuyXPos = Math.random()*300;
+       score++;
     }
 
     // good-guy x-axis boundries
