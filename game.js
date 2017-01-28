@@ -7,6 +7,7 @@ var myCanvas = document.getElementById("myCanvas");
 // representing a two-dimensional rendering context.
 var ctx = myCanvas.getContext("2d");
 
+
 //////////////
 // GOOD GUY //
 //////////////
@@ -16,6 +17,7 @@ var goodGuyYPos   =  90;
 var goodGuyWidth  =  40;
 var goodGuyHeight =  40;
 
+
 /////////////
 // BAD GUY //
 /////////////
@@ -24,6 +26,11 @@ var badGuyXPos   =  10;
 var badGuyYPos   =  10;
 var badGuyWidth  =  35;
 var badGuyHeight =  35;
+
+
+////////////
+// IMAGES //
+////////////
 
 var angularImage = new Image();
 angularImage.src = "angular.png"
@@ -68,6 +75,7 @@ function drawFrame(){
     checkCollisions(goodGuyXPos, goodGuyYPos, goodGuyWidth, goodGuyWidth, badGuyXPos, badGuyYPos, badGuyWidth, badGuyHeight);
 
 }
+
 
 /////////////////////////
 // COLLISION DETECTION //
